@@ -1,0 +1,37 @@
+{
+  "name": "visitor-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Proyecto backend implementado con Node.js que proporciona una API para la gestión integral de pasantes y el registro de visitantes en la oficina de pregrado. El sistema busca mejorar la organización interna mediante la automatización de los procesos de registro y seguimiento de personas que ingresan",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "author": "Javier lara",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie": "^0.6.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.9.2",
+    "@types/validator": "^13.15.4",
+    "prisma": "^6.18.0",
+    "rimraf": "^6.0.1",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.6"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "typescript": "^5.9.3",
+    "validator": "^13.15.20"
+  }
+}
