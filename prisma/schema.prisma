@@ -12,13 +12,59 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-enum Role{
+
+enum Role {
   ADMIN
   PASANTE
 }
-model user{
-  id        Int @id @default(autoincrement())
-  email     String @unique
-  password  String
-  role      Role
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
+enum VisitorType {
+  STUDENT
+  EXTERNAL
+}
+
+enum AttentionStatus {
+  PENDING
+  ATTENDED
+}
+
+model user {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+  role     Role
+
+  firstName      String
+  middleName     String? // opcional
+  lastName       String
+  secondLastName String? // opcional
+  major          String
+  status         Status  @default(ACTIVE)
+  visitors       Visitor[] // relación con visitantes
+}
+
+model Visitor {
+  id Int @id @default(autoincrement())
+
+  firstName      String
+  middleName     String?
+  lastName       String
+  secondLastName String?
+
+  phone          String
+
+  visitorType    VisitorType // estudiante o externo
+  major          String? // solo si es estudiante
+  reason         String // motivo de visita
+  status         AttentionStatus @default(PENDING)
+
+  // quién registró al visitante
+  registeredById Int
+  registeredBy   user @relation(fields: [registeredById], references: [id])
+
+  createdAt DateTime @default(now())
 }

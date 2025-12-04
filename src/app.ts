@@ -5,6 +5,7 @@ import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import visitorRoutes from './routes/visitorRoutes.js';
 const app = express();
 
 app.use(express.json());
@@ -18,9 +19,7 @@ app.use(cors({
 
 //routes
 app.use('/auth',authRoutes);
-app.use('/api/users',userRoutes);
-// /autentication
-// /users
-
+app.use('/users',userRoutes);
+app.use('/visitors', visitorRoutes)
 
 export default app;

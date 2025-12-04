@@ -6,7 +6,7 @@ import { comparePassword } from "../services/password.service.js";
 
 
 export const register = async (req: Request, res: Response) => {
-    const { email, password, role } = req.body;
+    const { email, password, role,firstName,middleName,lastName,secondLastName,major,status } = req.body;
     if (!email) return res.status(400).json({ error: "Email address is required" });
     if (!password) return res.status(400).json({ error: "The password is required" });
     if (!role) return res.status(400).json({ error: "The user role is required" });
@@ -23,7 +23,13 @@ export const register = async (req: Request, res: Response) => {
             data: {
                 email,
                 password: hashedPasword,
-                role
+                role,
+                firstName,
+                middleName,
+                lastName,
+                secondLastName,
+                major,
+                status
             }
         })
         const token = generateToken(user);
