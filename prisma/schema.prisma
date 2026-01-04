@@ -25,6 +25,8 @@ enum Status {
 enum VisitorType {
   STUDENT
   EXTERNAL
+  TEACHER
+  ADMINISTRATIVE
 }
 
 enum AttentionStatus {
